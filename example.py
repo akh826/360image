@@ -28,7 +28,9 @@ def convertResult(img):
 
 
 def main():
-    path = r"example/test"
+    floder = r"example"
+    name = r"test1"
+    path = os.path.join(floder,name)
     
     image_floder_data =r'example'
 
@@ -92,11 +94,11 @@ def main():
     plt.imshow(convertResult(panorama))
 
     count =0
-    img_name = "test"+str(count)+".png"
+    img_name = name+".png"
     print(os.listdir(os.path.join(os.getcwd(),image_floder_data)))
     while(img_name in os.listdir(os.path.join(os.getcwd(),image_floder_data))):
         count += 1
-        img_name = "test"+str(count)+".png"
+        img_name = name+"("+str(count)+").png"
     print(img_name)
     plt.savefig(os.path.join(os.getcwd(),image_floder_data,img_name))
 

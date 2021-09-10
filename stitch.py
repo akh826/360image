@@ -34,7 +34,7 @@ def blendingMask(height, width, barrier, smoothing_window, left_biased=True):
     return cv2.merge([mask, mask, mask])
 
 
-def panoramaBlending(dst_img_rz, src_img_warped, width_dst, side, showstep=False):
+def panoramaBlending(dst_img_rz, src_img_warped, width_dst, side, showstep=True):
     """Given two aligned images @dst_img and @src_img_warped, and the @width_dst is width of dst_img
     before resize, that indicates where there is the discontinuity between the images,
     this function produce a smoothed transient in the overlapping.
@@ -141,7 +141,6 @@ def warpTwoImages(src_img, dst_img, showstep=False):
         return pano, nonblend, leftside, rightside
     except BaseException:
         raise Exception("Please try again with another image set!")
-
 
 def multiStitching(list_images):
     """assume that the list_images was supplied in left-to-right order, choose middle image then
